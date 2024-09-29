@@ -12,6 +12,11 @@ const config: Config = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			azure: '#2563eb',
+			hoverblue: '#1e40af',
+			steelblue: '#1F2937',
+			gray: '#4b5563',
+			backgroundalt: '#F0F6FF',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
