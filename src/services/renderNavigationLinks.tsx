@@ -5,7 +5,7 @@ export const renderLinks = () => {
     <li key={link.name}>
       <Link
         href={link.href}
-        className="font-medium text-azure text-md sm:text-lg hover:text-hoverblue transition duration-300 ease-in-out"
+        className="font-medium text-black text-md sm:text-lg hover:text-hoverblue transition duration-300 ease-in-out"
       >
         {link.name}
       </Link>
