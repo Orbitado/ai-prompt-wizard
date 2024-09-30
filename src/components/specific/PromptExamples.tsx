@@ -28,9 +28,10 @@ export default function PromptExamples() {
         </TabsList>
         {aiModels.map((model) => (
           <TabsContent
+            tabIndex={0}
             key={model.name}
             value={model.value}
-            className="bg-white shadow-md"
+            className="bg-white shadow-md "
           >
             <Card className="">
               <CardHeader>

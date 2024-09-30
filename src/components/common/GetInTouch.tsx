@@ -11,19 +11,22 @@ export default function GetInTouch() {
           Get in Touch
         </h3>
         <Card>
-          <CardContent className="gap-6 grid">
+          <CardContent className="gap-6 grid bg-white">
             <form action="" method="post" className="gap-6 grid">
               <div className="gap-6 grid grid-cols-2">
-                <Input inputType="name" />
-                <Input inputType="email" />
+                <Input inputType="name" type="text" />
+                <Input inputType="email" type="email" />
               </div>
-              <label htmlFor="message">
+              <label
+                htmlFor="message"
+                className="font-medium text-sm text-start"
+              >
                 Message
                 <textarea
                   name="message"
                   id="message"
                   placeholder="How can we help you?"
-                  className="w-full h-32"
+                  className="p-2 border rounded-[0.25rem] w-full h-32 text-sm resize-none"
                   required
                 />
               </label>
