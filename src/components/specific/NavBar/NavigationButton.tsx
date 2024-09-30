@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import MobileMenu from "@/components/specific/NavBar/MobileMenu";
 import Link from "next/link";
@@ -9,6 +9,7 @@ export default function NavigationButton() {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       <div className="flex justify-between items-center">

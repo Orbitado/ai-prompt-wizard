@@ -1,4 +1,5 @@
 import { renderLinks } from "@/services/renderNavigationLinks";
+import React from "react";
 
 export default function MobileMenu({ isOpen }: { isOpen: boolean }) {
   return (
