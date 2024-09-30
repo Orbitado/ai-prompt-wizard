@@ -1,5 +1,5 @@
-import DesktopMenu from "@/components/NavBar/DesktopMenu";
-import NavigationButton from "@/components/NavBar/NavigationButton";
+import DesktopMenu from "@/components/specific/NavBar/DesktopMenu";
+import NavigationButton from "@/components/specific/NavBar/NavigationButton";
 
 export default function NavBar() {
   return (

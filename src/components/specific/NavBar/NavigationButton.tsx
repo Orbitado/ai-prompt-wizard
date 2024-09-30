@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
-import MobileMenu from "@/components/NavBar/MobileMenu";
+import MobileMenu from "@/components/specific/NavBar/MobileMenu";
 import Link from "next/link";
 
 export default function NavigationButton() {
