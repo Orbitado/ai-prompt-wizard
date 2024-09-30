@@ -10,7 +10,7 @@ export default function Button({
     <div className="flex flex-wrap justify-center">
       <Link
         href={href}
-        className="bg-blue-600 hover:bg-blue-700 px-8 py-2 rounded-full w-fit font-bold text-sm text-white xs:text-md lg:text-lg"
+        className="bg-blue-600 hover:bg-blue-700 px-8 py-2 rounded-full w-fit font-bold text-md text-white xs:text-lg"
       >
         {children}
       </Link>
