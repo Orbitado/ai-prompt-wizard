@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FeatureContainer from "@/components/KeyFeatures/FeatureContainer";
 export default function page() {
   return (
     <section
@@ -22,8 +23,9 @@ export default function page() {
           </Link>
         </div>
       </article>
-      <article>
+      <article className="space-y-4">
         <h3 className="font-bold text-4xl text-gray-800">Key Features</h3>
+        <FeatureContainer />
       </article>
     </section>
   );
