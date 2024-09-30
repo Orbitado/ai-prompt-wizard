@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function CallToAction() {
   return (
-    <section className="flex flex-col justify-center items-center space-y-6 bg-blue-600 my-16 py-8 rounded-xl w-full text-center">
+    <article className="flex flex-col justify-center items-center space-y-6 bg-blue-600 my-16 py-8 rounded-xl w-full text-center">
       <h3 className="font-bold text-4xl text-white">
         Ready to Supercharge Your AI Interactions?
       </h3>
@@ -12,6 +12,6 @@ export default function CallToAction() {
       <Button isLight href="/prompts">
         Start Your First Prompt - It&apos;s Free
       </Button>
-    </section>
+    </article>
   );
 }

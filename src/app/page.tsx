@@ -5,6 +5,7 @@ import PromptExamples from "@/components/specific/PromptExamples";
 import HowToUseAI from "@/components/specific/HowtoUseAI";
 import OurUserSays from "@/components/specific/OurUserSays";
 import CallToAction from "@/components/common/CallToAction";
+import GetInTouch from "@/components/common/GetInTouch";
 
 export default function page() {
   return (
@@ -21,6 +22,7 @@ export default function page() {
       <HowToUseAI />
       <OurUserSays />
       <CallToAction />
+      <GetInTouch />
     </section>
   );
 }
