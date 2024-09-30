@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import NavBar from "@/components/specific/NavBar/NavBar";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -40,12 +42,6 @@ export const metadata: Metadata = {
       "Use AI Prompt Wizard to generate optimized, creative, and precise prompts for AI models like ChatGPT, DALL·E, and MidJourney. Empower your projects with cutting-edge prompt generation for business, art, and content creation.",
     url: "https://www.example.com/ai-prompt-wizard",
     type: "website",
-    images: [
-      {
-        url: "https://www.example.com/images/ai-prompt-wizard-banner.jpg",
-        alt: "AI Prompt Wizard Banner",
-      },
-    ],
   },
 };
 
@@ -55,8 +51,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>{children}</body>
+    <html lang="en" className={geistSans.variable}>
+      <body className="bg-backgroundalt antialiased">
+        <NavBar />
+        <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
