@@ -15,7 +15,7 @@ const config: Config = {
 			azure: '#2563eb',
 			hoverblue: '#1e40af',
 			steelblue: '#1F2937',
-			gray: '#4b5563',
+			steel: '#4b5563',
 			backgroundalt: '#F0F6FF',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
