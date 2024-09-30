@@ -4,6 +4,7 @@ import CraftPerfectAI from "@/components/specific/CraftPerfectAI";
 import PromptExamples from "@/components/specific/PromptExamples";
 import HowToUseAI from "@/components/specific/HowtoUseAI";
 import OurUserSays from "@/components/specific/OurUserSays";
+import CallToAction from "@/components/common/CallToAction";
 
 export default function page() {
   return (
@@ -19,6 +20,7 @@ export default function page() {
       <PromptExamples />
       <HowToUseAI />
       <OurUserSays />
+      <CallToAction />
     </section>
   );
 }

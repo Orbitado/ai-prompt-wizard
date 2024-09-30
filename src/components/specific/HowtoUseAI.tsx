@@ -19,7 +19,6 @@ export default function HowtoUseAI() {
           />
         ))}
       </section>
-      <Button href="/prompts">Start Your First Prompt &rarr;</Button>
     </article>
   );
 }
