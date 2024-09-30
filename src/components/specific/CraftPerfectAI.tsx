@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "@/components/common/Button";
 export default function CraftPerfectAI() {
   return (
     <article className="space-y-4 mb-16">
@@ -9,14 +9,7 @@ export default function CraftPerfectAI() {
         Enhance your interactions with AI models like ChatGPT, DALL·E, and
         MidJourney. Start creating powerful prompts in minutes!
       </p>
-      <div className="flex flex-wrap justify-center gap-4">
-        <Link
-          href="/prompts"
-          className="bg-blue-600 hover:bg-blue-700 px-8 py-2 rounded-full font-bold text-lg text-white"
-        >
-          Start Generating Prompts
-        </Link>
-      </div>
+      <Button href="/prompts">Start Generating Prompts</Button>
     </article>
   );
 }

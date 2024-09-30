@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navigationLinks } from "../services/navigationLinks";
+import { navigationLinks } from "../data/navigationLinks";
 export const renderLinks = () => {
   return navigationLinks.map((link) => (
     <li key={link.name}>
