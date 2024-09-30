@@ -1,4 +1,3 @@
-import Button from "@/components/common/Button";
 import Card from "@/components/common/Card";
 import NumberIcon from "@/components/common/NumberIcon";
 import { howtoUseAI } from "@/data/howtoUseAI";
