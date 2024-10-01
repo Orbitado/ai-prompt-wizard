@@ -48,6 +48,7 @@ export default function PromptExamples() {
               <CardFooter className="flex justify-center">
                 <Link
                   href="/prompts"
+                  aria-label={`Click here to try this prompt for ${model.name}`}
                   className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
                 >
                   Try this prompt

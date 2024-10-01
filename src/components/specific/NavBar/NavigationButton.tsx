@@ -14,7 +14,9 @@ export default function NavigationButton() {
     <>
       <div className="flex justify-between items-center">
         <h1 className="md:hidden font-bold text-azure text-xl sm:text-2xl md:text-3xl">
-          <Link href="/">AI Prompt Wizard</Link>
+          <Link href="/" aria-label="Click here to go to the home page">
+            AI Prompt Wizard
+          </Link>
         </h1>
         <button
           title="Open navigation"
