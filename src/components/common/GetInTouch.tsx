@@ -20,16 +20,11 @@ export default function GetInTouch() {
                 htmlFor="message"
                 className="font-medium text-sm text-start"
               >
-              <label
-                htmlFor="message"
-                className="font-medium text-sm text-start"
-              >
                 Message
                 <textarea
                   name="message"
                   id="message"
                   placeholder="How can we help you?"
-                  className="p-2 border rounded-[0.25rem] w-full h-32 text-sm resize-none"
                   className="p-2 border rounded-[0.25rem] w-full h-32 text-sm resize-none"
                   required
                 />
