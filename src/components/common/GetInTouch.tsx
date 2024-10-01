@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -11,9 +10,9 @@ export default function GetInTouch() {
           Get in Touch
         </h3>
         <Card>
-          <CardContent className="gap-6 grid bg-white">
+          <CardContent className="bg-white">
             <form action="" className="gap-6 grid">
-              <div className="gap-6 grid grid-cols-2">
+              <div className="md:gap-6 grid grid-cols-1 md:grid-cols-2">
                 <Input inputType="name" type="text" />
                 <Input inputType="email" type="email" />
               </div>
@@ -30,7 +29,9 @@ export default function GetInTouch() {
                   required
                 />
               </label>
-              <Button href="">Submit</Button>
+              <button className="bg-blue-600 hover:bg-blue-700 p-2 rounded-[0.25rem] w-full h-fit font-bold text-white">
+                Submit
+              </button>
             </form>
           </CardContent>
         </Card>
