@@ -4,7 +4,7 @@ import { howtoUseAI } from "@/data/howtoUseAI";
 export default function HowtoUseAI() {
   const howtoUseAIArray = Object.entries(howtoUseAI);
   return (
-    <article className="space-y-8 mb-12">
+    <article className="space-y-8 mb-12" id="how-to-use">
       <h3 className="font-bold text-4xl text-gray-800">
         How to Use AI Prompt Wizard
       </h3>
