@@ -12,7 +12,7 @@ export default function GetInTouch() {
         </h3>
         <Card>
           <CardContent className="gap-6 grid bg-white">
-            <form action="" method="post" className="gap-6 grid">
+            <form action="" className="gap-6 grid">
               <div className="gap-6 grid grid-cols-2">
                 <Input inputType="name" type="text" />
                 <Input inputType="email" type="email" />

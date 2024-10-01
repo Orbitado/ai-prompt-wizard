@@ -10,7 +10,7 @@ import GetInTouch from "@/components/common/GetInTouch";
 export default function page() {
   return (
     <section
-      id="#main-content"
+      id="#key-features"
       className="flex flex-col justify-center items-center my-16 text-center"
     >
       <CraftPerfectAI />
