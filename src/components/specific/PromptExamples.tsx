@@ -12,7 +12,7 @@ import { aiModels } from "@/data/aiModels";
 
 export default function PromptExamples() {
   return (
-    <article className="space-y-8 mb-12">
+    <article className="space-y-8 mb-12" id="prompt-examples">
       <h3 className="font-bold text-4xl text-gray-800">Prompt Examples</h3>
       <Tabs defaultValue="chatgpt" className="w-full max-w-7xl">
         <TabsList className="grid grid-cols-3 mb-4 w-full">
