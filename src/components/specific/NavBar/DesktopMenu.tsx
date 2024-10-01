@@ -12,6 +12,7 @@ export default function DesktopMenu() {
         <li className="sr-only">
           <Link
             href="#main-content"
+            aria-label="Skip to main content"
             className="top-0 absolute inset-x-0 font-medium text-azure text-md sm:text-lg hover:text-hoverblue"
           >
             Skip to main content
