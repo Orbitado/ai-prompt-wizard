@@ -16,6 +16,8 @@ export default function SocialMedia({
       href={href}
       className="flex items-center gap-2"
       target={isBlank ? "_blank" : "_self"}
+      rel="noopener noreferrer"
+      aria-label={`Click here to go to Leonardo's ${children}`}
     >
       {icon}
       <span className="hover:underline">{children}</span>

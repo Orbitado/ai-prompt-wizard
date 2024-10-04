@@ -11,7 +11,11 @@ export default function GetInTouch() {
         </h3>
         <Card>
           <CardContent className="bg-white">
-            <form action="" className="gap-6 grid">
+            <form
+              action="https://formsubmit.co/vleonardojuanpablo@icloud.com"
+              method="post"
+              className="gap-6 grid"
+            >
               <div className="md:gap-6 grid grid-cols-1 md:grid-cols-2">
                 <Input inputType="name" type="text" />
                 <Input inputType="email" type="email" />
