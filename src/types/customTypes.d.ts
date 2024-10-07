@@ -9,3 +9,8 @@ export interface InputP {
 export interface TextAreaP extends InputP {
     rows?: number;
 }
+
+export interface RadioSelectP {
+    name: string;
+    options: string[];
+}

@@ -24,7 +24,7 @@ export default function Input({
         name={name}
         id={name}
         placeholder={placeholder}
-        className="border-gray-300 p-2 border rounded-[0.25rem] w-full text-sm"
+        className="border-gray-300 mt-2 p-2 border rounded-[0.25rem] w-full text-sm"
       />
     </label>
   );
