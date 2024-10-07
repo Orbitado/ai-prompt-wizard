@@ -9,6 +9,9 @@ import Dropdown from "@/components/specific/Dropdown";
 import TextArea from "@/components/common/TextArea";
 import Input from "@/components/common/Input";
 import RadioSelect from "@/components/common/RadioSelect";
+import Button from "@/components/common/Button";
+
+import { FaWandMagicSparkles } from "react-icons/fa6";
 
 export default function PromptGeneratorPage() {
   return (
@@ -47,6 +50,13 @@ export default function PromptGeneratorPage() {
                 options={["Professional", "Casual", "Humorous", "Serious"]}
               />
             </div>
+            <Button
+              href="/prompts"
+              addClass="w-full rounded-[0.26rem] flex justify-center items-center"
+            >
+              <span>Generate Prompt</span>
+              <FaWandMagicSparkles className="ml-2 text-xl" />
+            </Button>
           </CardContent>
         </Card>
       </article>
