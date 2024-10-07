@@ -5,7 +5,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import Dropdown from "@/components/common/Dropdown";
+import Dropdown from "@/components/specific/Dropdown";
+import TextArea from "@/components/common/TextArea";
+import Input from "@/components/common/Input";
 
 export default function PromptGeneratorPage() {
   return (
@@ -23,6 +25,16 @@ export default function PromptGeneratorPage() {
               Fill in the details below to generate your AI prompt
             </CardDescription>
             <Dropdown />
+            <TextArea
+              name="What's your goal?"
+              placeholder="Describe what you want to achieve with this prompt"
+            />
+            <Input
+              labelTitle="Topic or Subject Matter"
+              type="text"
+              placeholder="Enter the main topic or subject"
+              name="topic"
+            />
           </CardContent>
         </Card>
       </article>

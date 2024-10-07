@@ -1,5 +1,5 @@
 export interface InputP {
-    labelTitle: string;
+    labelTitle?: string;
     placeholder: string;
     name: string;
     type?: "text" | "email" | "number" | "password" | "date";

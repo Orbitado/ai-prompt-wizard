@@ -5,11 +5,14 @@ export default function TextArea({
   name,
   rows,
   placeholder,
+  labelTitle,
   required = false,
 }: TextAreaP) {
   return (
-    <label htmlFor={name} className="font-semibold text-sm text-start">
-      Message
+    <>
+      <label htmlFor={name} className="font-semibold text-sm">
+        {labelTitle || name}
+      </label>
       <textarea
         name={name}
         id={name}
@@ -18,6 +21,6 @@ export default function TextArea({
         rows={rows}
         required={required}
       />
-    </label>
+    </>
   );
 }

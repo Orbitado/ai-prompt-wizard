@@ -1,7 +1,9 @@
 const Dropdown = () => {
   return (
-    <label title="Choose an AI model" className="dropdown">
-      <span className="font-semibold text-sm">Select AI model</span>
+    <>
+      <label title="Choose an AI model" className="dropdown">
+        <span className="font-semibold text-sm">Select AI model</span>
+      </label>
       <select
         title="Choose an AI model"
         defaultValue="Choose an AI model"
@@ -20,7 +22,7 @@ const Dropdown = () => {
           MidJourney
         </option>
       </select>
-    </label>
+    </>
   );
 };
 
