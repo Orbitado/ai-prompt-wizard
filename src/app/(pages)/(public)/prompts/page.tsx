@@ -59,6 +59,44 @@ export default function PromptGeneratorPage() {
             </Button>
           </CardContent>
         </Card>
+        <Card className="lg:col-span-1 bg-card bg-white shadow-sm border">
+          <CardContent className="flex flex-col space-y-6 p-6">
+            <div>
+              <CardTitle className="font-semibold text-2xl tracking-tight">
+                Generated Prompt
+              </CardTitle>
+              <CardDescription className="text-gray-600">
+                Your AI-generated prompt will appear here
+              </CardDescription>
+            </div>
+            <TextArea
+              name="What's your goal?"
+              placeholder="Describe what you want to achieve with this prompt"
+            />
+            <Input
+              labelTitle="Topic or Subject Matter"
+              type="text"
+              placeholder="Enter the main topic or subject"
+              name="topic"
+            />
+            <div>
+              <label htmlFor="ai-tone-models">
+                <span className="font-semibold text-sm">Tone</span>
+              </label>
+              <RadioSelect
+                name="ai-tone-models"
+                options={["Professional", "Casual", "Humorous", "Serious"]}
+              />
+            </div>
+            <Button
+              href="/prompts"
+              addClass="w-full rounded-[0.26rem] flex justify-center items-center"
+            >
+              <span>Generate Prompt</span>
+              <FaWandMagicSparkles className="ml-2 text-xl" />
+            </Button>
+          </CardContent>
+        </Card>
       </article>
     </section>
   );
