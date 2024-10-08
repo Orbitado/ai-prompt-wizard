@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "@/components/common/Input";
 import { Card, CardContent } from "@/components/ui/card";
+import TextArea from "./TextArea";
 
 export default function GetInTouch() {
   return (
@@ -17,22 +18,28 @@ export default function GetInTouch() {
               className="gap-6 grid"
             >
               <div className="md:gap-6 grid grid-cols-1 md:grid-cols-2">
-                <Input inputType="name" type="text" />
-                <Input inputType="email" type="email" />
-              </div>
-              <label
-                htmlFor="message"
-                className="font-medium text-sm text-start"
-              >
-                Message
-                <textarea
-                  name="message"
-                  id="message"
-                  placeholder="How can we help you?"
-                  className="p-2 border rounded-[0.25rem] w-full h-32 text-sm resize-none"
+                <Input
+                  labelTitle="Name"
+                  placeholder="Enter your name"
+                  name="name"
                   required
+                  type="text"
                 />
-              </label>
+                <Input
+                  labelTitle="Email"
+                  placeholder="Enter your email"
+                  name="email"
+                  required
+                  type="email"
+                />
+              </div>
+              <TextArea
+                labelTitle="Message"
+                name="message"
+                rows={5}
+                placeholder="Enter your message"
+                required
+              />
               <button className="bg-blue-600 hover:bg-blue-700 p-2 rounded-[0.25rem] w-full h-fit font-bold text-white">
                 Submit
               </button>

@@ -1,23 +1,30 @@
 import React from "react";
 
-export default function Input({
-  inputType,
-  type,
-}: {
-  inputType: string;
+interface InputP {
+  labelTitle: string;
+  placeholder: string;
+  name: string;
   type: string;
-}) {
-  const label = inputType.charAt(0).toUpperCase() + inputType.slice(1);
+  required?: boolean;
+}
+
+export default function Input({
+  labelTitle,
+  placeholder,
+  name,
+  type,
+  required = false,
+}: InputP) {
   return (
-    <label htmlFor={inputType} className="mt-4 w-full text-start">
-      <span className="font-medium text-sm">{label}</span>
+    <label htmlFor={name} className="mt-4 w-full text-start">
+      <span className="font-semibold text-sm">{labelTitle}</span>
       <input
+        required={required}
         type={type}
-        name={inputType}
-        id={inputType}
-        placeholder={`Enter your ${inputType}`}
-        className="border-gray-300 p-2 border rounded-[0.25rem] w-full text-sm"
-        required
+        name={name}
+        id={name}
+        placeholder={placeholder}
+        className="border-gray-300 mt-2 p-2 border rounded-[0.25rem] w-full text-sm"
       />
     </label>
   );
