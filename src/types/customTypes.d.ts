@@ -8,6 +8,8 @@ export interface InputP {
 
 export interface TextAreaP extends InputP {
     rows?: number;
+    disabled?: boolean;
+    noResize?: boolean;
 }
 
 export interface RadioSelectP {

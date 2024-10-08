@@ -11,7 +11,7 @@ import Input from "@/components/common/Input";
 import RadioSelect from "@/components/common/RadioSelect";
 import Button from "@/components/common/Button";
 
-import { FaWandMagicSparkles } from "react-icons/fa6";
+import { FaCopy, FaWandMagicSparkles } from "react-icons/fa6";
 
 export default function PromptGeneratorPage() {
   return (
@@ -70,30 +70,17 @@ export default function PromptGeneratorPage() {
               </CardDescription>
             </div>
             <TextArea
-              name="What's your goal?"
-              placeholder="Describe what you want to achieve with this prompt"
+              name=""
+              disabled
+              noResize
+              placeholder="Your generated prompt will be displayed here..."
             />
-            <Input
-              labelTitle="Topic or Subject Matter"
-              type="text"
-              placeholder="Enter the main topic or subject"
-              name="topic"
-            />
-            <div>
-              <label htmlFor="ai-tone-models">
-                <span className="font-semibold text-sm">Tone</span>
-              </label>
-              <RadioSelect
-                name="ai-tone-models"
-                options={["Professional", "Casual", "Humorous", "Serious"]}
-              />
-            </div>
             <Button
               href="/prompts"
               addClass="w-full rounded-[0.26rem] flex justify-center items-center"
             >
-              <span>Generate Prompt</span>
-              <FaWandMagicSparkles className="ml-2 text-xl" />
+              <FaCopy className="mr-2 text-xl" />
+              <span>Copy Prompt</span>
             </Button>
           </CardContent>
         </Card>
