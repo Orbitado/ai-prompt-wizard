@@ -19,7 +19,7 @@ export default function PromptGeneratorPage() {
       <h1 className="mb-8 font-bold text-4xl text-center text-gray-800">
         Start Generating Prompts
       </h1>
-      <article className="gap-4 grid lg:grid-cols-4">
+      <article className="gap-4 grid grid-cols-1 lg:grid-cols-4">
         <Card className="lg:col-span-3 bg-card bg-white shadow-sm border">
           <CardContent className="flex flex-col space-y-6 p-6">
             <div>
