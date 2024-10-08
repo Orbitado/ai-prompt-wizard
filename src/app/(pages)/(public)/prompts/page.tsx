@@ -11,7 +11,8 @@ import Input from "@/components/common/Input";
 import RadioSelect from "@/components/common/RadioSelect";
 import Button from "@/components/common/Button";
 
-import { FaCopy, FaWandMagicSparkles } from "react-icons/fa6";
+import { FaWandMagicSparkles } from "react-icons/fa6";
+import CopyToClipboard from "@/components/common/CopyToClipboard";
 
 export default function PromptGeneratorPage() {
   return (
@@ -75,13 +76,7 @@ export default function PromptGeneratorPage() {
               noResize
               placeholder="Your generated prompt will be displayed here..."
             />
-            <Button
-              href="/prompts"
-              addClass="w-full rounded-[0.26rem] flex justify-center items-center"
-            >
-              <FaCopy className="mr-2 text-xl" />
-              <span>Copy Prompt</span>
-            </Button>
+            <CopyToClipboard text="Your generated prompt will be displayed here..." />
           </CardContent>
         </Card>
       </article>
