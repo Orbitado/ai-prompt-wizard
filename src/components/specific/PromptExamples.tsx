@@ -31,9 +31,9 @@ export default function PromptExamples() {
             tabIndex={0}
             key={model.name}
             value={model.value}
-            className="bg-white shadow-md "
+            className="bg-white shadow-md"
           >
-            <Card className="">
+            <Card>
               <CardHeader>
                 <CardTitle className="text-2xl text-gray-800">
                   {model.title}

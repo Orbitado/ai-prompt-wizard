@@ -24,9 +24,9 @@ export default function NavigationButton() {
           onClick={toggleDropdown}
         >
           {isOpen ? (
-            <RxHamburgerMenu className="text-3xl text-azure" />
-          ) : (
             <RxCross2 className="text-3xl text-azure" />
+          ) : (
+            <RxHamburgerMenu className="text-3xl text-azure" />
           )}
         </button>
       </div>
