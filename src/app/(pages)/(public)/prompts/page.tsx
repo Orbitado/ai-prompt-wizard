@@ -13,6 +13,7 @@ import Button from "@/components/common/Button";
 
 import { FaWandMagicSparkles } from "react-icons/fa6";
 import CopyToClipboard from "@/components/common/CopyToClipboard";
+import PromptExamples from "@/components/specific/PromptExamples";
 
 export default function PromptGeneratorPage() {
   return (
@@ -79,6 +80,9 @@ export default function PromptGeneratorPage() {
             <CopyToClipboard text="Your generated prompt will be displayed here..." />
           </CardContent>
         </Card>
+      </article>
+      <article className="my-16">
+        <PromptExamples />
       </article>
     </section>
   );
