@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -52,10 +53,9 @@ export default function PromptGeneratorPage() {
                 options={["Professional", "Casual", "Humorous", "Serious"]}
               />
             </div>
-            <Button
-              href="/prompts"
+            <Button              href="/prompts"
               addClass="w-full rounded-[0.26rem] flex justify-center items-center"
-            >
+            >       
               <span>Generate Prompt</span>
               <FaWandMagicSparkles className="ml-2 text-xl" />
             </Button>
