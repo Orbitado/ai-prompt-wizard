@@ -19,7 +19,10 @@ export async function POST(request: Request) {
         - Specific Requirements or Guidelines  
         - Target Audience
         
-        Please ensure the prompt is clear and detailed, providing the AI enough context to generate a useful response while also allowing flexibility for creativity and depth.`.trim();
+        Please ensure the prompt is clear and detailed, providing the AI enough context to generate a useful response while also allowing flexibility for creativity and depth.
+        
+        Remember that the prompt should be tailored to the specific needs of the AI model and should not be generic and please, dont add unnecessary details as they will be ignored.
+        `.trim();
 
         const cohereResponse = await fetch('https://api.cohere.ai/generate', {
             method: 'POST',
