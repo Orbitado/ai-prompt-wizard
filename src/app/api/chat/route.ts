@@ -8,22 +8,18 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
-        const prompt = `
-        You are an advanced ${model} model.
-        Your task is to generate a high-quality prompt for the following goal:
-        "${goal}".
-        
-        The prompt should be in a ${tone} tone and focus on the topic:
-        "${topic}". 
-        
-        Please ensure the output is clear, concise, and adheres to the following:
-        - Provide specific guidance on the subject matter.
-        - Ensure that the tone matches the intended style (${tone}).
-        - The prompt should be detailed enough for the user to achieve the goal (${goal}).
-        - Add creative or technical elements where necessary based on the topic (${topic}).
+        const prompt = `You are a skilled prompt engineer with extensive experience in guiding AI to create effective and relevant prompts tailored to various needs. Your specialty lies in crafting prompts that enable other AI models to generate insightful, creative, or practical outputs based on specific requirements. 
 
-        Structure your response to ensure maximum clarity and effectiveness.
-        `;
+        Your task is to generate a prompt that instructs an AI to create a new prompt for a specific subject or task. Here are the parameters you should consider during the creation process:
+        
+        - Subject Area: ${topic}
+        - Model of the IA: ${model}
+        - Goal: ${goal}  
+        - Tone: ${tone}
+        - Specific Requirements or Guidelines  
+        - Target Audience
+        
+        Please ensure the prompt is clear and detailed, providing the AI enough context to generate a useful response while also allowing flexibility for creativity and depth.`.trim();
 
         const cohereResponse = await fetch('https://api.cohere.ai/generate', {
             method: 'POST',
