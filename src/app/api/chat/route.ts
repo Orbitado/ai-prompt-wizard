@@ -33,7 +33,7 @@ export async function POST(request: Request) {
             },
             body: JSON.stringify({
                 model: 'command',
-                inputs: prompt
+                prompt: prompt
             })
         });
 
