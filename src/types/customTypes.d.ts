@@ -15,4 +15,5 @@ export interface TextAreaP extends InputP {
 export interface RadioSelectP {
     name: string;
     options: string[];
+    onChangeFunction?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
