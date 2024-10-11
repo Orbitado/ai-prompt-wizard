@@ -1,86 +1,122 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
-
-import Dropdown from "@/components/specific/Dropdown";
-import TextArea from "@/components/common/TextArea";
-import Input from "@/components/common/Input";
 import RadioSelect from "@/components/common/RadioSelect";
-import Button from "@/components/common/Button";
-
 import { FaWandMagicSparkles } from "react-icons/fa6";
 import CopyToClipboard from "@/components/common/CopyToClipboard";
 import PromptExamples from "@/components/specific/PromptExamples";
 
+import { aiModels } from "@/data/aiModels";
+
 export default function PromptGeneratorPage() {
+  const toneOptions = ["Professional", "Casual", "Formal", "Humorous"];
   return (
     <section className="my-16">
-      <h1 className="mb-8 font-bold text-4xl text-center text-gray-800">
+      <h2 className="mb-8 font-bold text-4xl text-center text-gray-800">
         Start Generating Prompts
-      </h1>
+      </h2>
       <article className="gap-4 grid grid-cols-1 lg:grid-cols-4">
-        <Card className="lg:col-span-3 bg-card bg-white shadow-sm border">
-          <CardContent className="flex flex-col space-y-6 p-6">
-            <div>
-              <CardTitle className="font-semibold text-2xl tracking-tight">
+        <section className="lg:col-span-3 bg-white shadow-sm border">
+          <div className="flex flex-col space-y-6 p-6">
+            <header>
+              <h3 className="font-semibold text-2xl tracking-tight">
                 Prompt Generator
-              </CardTitle>
-              <CardDescription className="text-gray-600">
+              </h3>
+              <p className="text-gray-600">
                 Fill in the details below to generate your AI prompt
-              </CardDescription>
-            </div>
-            <Dropdown />
-            <TextArea
-              name="What's your goal?"
-              placeholder="Describe what you want to achieve with this prompt"
-            />
-            <Input
-              labelTitle="Topic or Subject Matter"
-              type="text"
-              placeholder="Enter the main topic or subject"
-              name="topic"
-            />
-            <div>
-              <label htmlFor="ai-tone-models">
-                <span className="font-semibold text-sm">Tone</span>
+              </p>
+            </header>
+            <form>
+              <label title="Choose an AI model" className="dropdown">
+                <span className="font-semibold text-sm">Select AI model</span>
               </label>
-              <RadioSelect
-                name="ai-tone-models"
-                options={["Professional", "Casual", "Humorous", "Serious"]}
+              <select
+                title="Choose an AI model"
+                defaultValue="Choose an AI model"
+                className="border-gray-300 mt-2 p-2 border rounded-[0.25rem] w-full text-sm"
+              >
+                <option
+                  value="Choose an AI model"
+                  disabled
+                  className="dropdown-item"
+                >
+                  Choose an AI model
+                </option>
+                {aiModels.map((model) => (
+                  <option
+                    key={model.name}
+                    value={model.value}
+                    className="dropdown-item"
+                  >
+                    {model.name}
+                  </option>
+                ))}
+              </select>
+              <label
+                htmlFor="goal"
+                className="block mt-4 mb-2 font-semibold text-sm"
+              >
+                What is your goal?
+              </label>
+              <textarea
+                id="goal"
+                name="goal"
+                placeholder="Describe what you want to achieve with this prompt"
+                className="p-2 border rounded w-full"
+              ></textarea>
+              <label
+                htmlFor="topic"
+                className="block mt-4 mb-2 font-semibold text-sm"
+              >
+                Topic or Subject Matter
+              </label>
+              <input
+                id="topic"
+                type="text"
+                placeholder="Enter the main topic or subject"
+                name="topic"
+                className="p-2 border rounded w-full"
               />
-            </div>
-            <Button              href="/prompts"
-              addClass="w-full rounded-[0.26rem] flex justify-center items-center"
-            >       
-              <span>Generate Prompt</span>
-              <FaWandMagicSparkles className="ml-2 text-xl" />
-            </Button>
-          </CardContent>
-        </Card>
-        <Card className="lg:col-span-1 bg-card bg-white shadow-sm border">
-          <CardContent className="flex flex-col space-y-6 p-6">
-            <div>
-              <CardTitle className="font-semibold text-2xl tracking-tight">
+
+              <fieldset className="mt-4">
+                <legend className="font-semibold text-sm">Tone</legend>
+                <div id="ai-tone-models" className="flex space-x-4">
+                  <RadioSelect name="tone" options={toneOptions} />
+                </div>
+              </fieldset>
+
+              <a
+                href="/prompts"
+                className="flex justify-center items-center bg-blue-500 mt-6 p-2 rounded-[0.26rem] w-full text-white"
+              >
+                <span>Generate Prompt</span>
+                <FaWandMagicSparkles className="ml-2" />
+              </a>
+            </form>
+          </div>
+        </section>
+
+        <section className="lg:col-span-1 bg-white shadow-sm border">
+          <div className="flex flex-col space-y-6 p-6">
+            <header>
+              <h3 className="font-semibold text-2xl tracking-tight">
                 Generated Prompt
-              </CardTitle>
-              <CardDescription className="text-gray-600">
+              </h3>
+              <p className="text-gray-600">
                 Your AI-generated prompt will appear here
-              </CardDescription>
-            </div>
-            <TextArea
-              name=""
+              </p>
+            </header>
+
+            <textarea
+              name="generated-prompt"
               disabled
-              noResize
+              className="p-2 border rounded w-full"
               placeholder="Your generated prompt will be displayed here..."
-            />
+            ></textarea>
+
             <CopyToClipboard text="Your generated prompt will be displayed here..." />
-          </CardContent>
-        </Card>
+          </div>
+        </section>
       </article>
+
       <article className="my-16">
         <PromptExamples />
       </article>
