@@ -8,9 +8,12 @@ export interface InputP {
 
 export interface TextAreaP extends InputP {
     rows?: number;
+    disabled?: boolean;
+    noResize?: boolean;
 }
 
 export interface RadioSelectP {
     name: string;
     options: string[];
+    onChangeFunction?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
