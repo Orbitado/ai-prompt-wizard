@@ -6,6 +6,7 @@ import PromptExamples from "@/components/specific/PromptExamples";
 
 import { aiModels } from "@/data/aiModels";
 import { useState } from "react";
+import HowtoUseAI from "@/components/specific/HowtoUseAI";
 
 export default function PromptGeneratorPage() {
   const [selectedModel, setSelectedModel] = useState<string>();
@@ -14,32 +15,15 @@ export default function PromptGeneratorPage() {
   const [topic, setTopic] = useState<string>();
   const [generatedPrompt, setGeneratedPrompt] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>();
 
   const toneOptions = ["Professional", "Casual", "Formal", "Humorous"];
-
-  console.log(
-    "Model:",
-    selectedModel,
-    "Goal:",
-    goal,
-    "Topic:",
-    topic,
-    "Tone:",
-    selectedTone
-  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       setIsLoading(true);
       if (selectedModel && selectedTone && goal && topic) {
-        console.log("Sending request with:", {
-          model: selectedModel,
-          tone: selectedTone,
-          goal,
-          topic,
-        });
-
         const cohereResponse = await fetch("/api/chat", {
           method: "POST",
           headers: {
@@ -54,18 +38,17 @@ export default function PromptGeneratorPage() {
         });
 
         if (!cohereResponse.ok) {
-          console.error(
-            "Error with the response status:",
-            cohereResponse.status
+          setError(
+            `Request failed, please contact support. ${cohereResponse.statusText}`
           );
           return;
         }
 
         const data = await cohereResponse.json();
-        console.log("API response:", data);
 
         if (data.error) {
-          console.error("API Error:", data.error);
+          setError(data.error);
+          return;
         }
 
         setSelectedModel("");
@@ -74,12 +57,11 @@ export default function PromptGeneratorPage() {
         setTopic("");
 
         setGeneratedPrompt(data.cohereResponse.text);
-        console.log("Generated prompt:", data.cohereResponse.text);
       } else {
-        console.error("Form submission failed: all fields are required.");
+        setError("Please fill in all required fields.");
       }
     } catch (error) {
-      console.error("Error:", error);
+      setError(error instanceof Error ? error.message : "An error occurred.");
     } finally {
       setIsLoading(false);
     }
@@ -190,6 +172,7 @@ export default function PromptGeneratorPage() {
                 )}
               </button>
             </form>
+            {error && <p className="text-red-500">{error}</p>}
           </div>
         </section>
 
@@ -217,9 +200,10 @@ export default function PromptGeneratorPage() {
         </section>
       </article>
 
-      <article className="my-16">
+      <section className="my-16 text-center">
+        <HowtoUseAI />
         <PromptExamples />
-      </article>
+      </section>
     </section>
   );
 }
