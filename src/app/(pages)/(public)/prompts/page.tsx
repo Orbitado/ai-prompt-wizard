@@ -169,7 +169,7 @@ export default function PromptGeneratorPage() {
 
               <button
                 type="submit"
-                className="flex justify-center items-center bg-blue-500 mt-6 p-2 rounded-[0.26rem] w-full text-white"
+                className="flex justify-center items-center bg-blue-600 hover:bg-blue-700 mt-6 p-2 rounded-[0.26rem] w-full text-white"
               >
                 {isLoading ? (
                   <div className="flex items-center space-x-2">
