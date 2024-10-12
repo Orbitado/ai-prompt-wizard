@@ -109,6 +109,7 @@ export default function PromptGeneratorPage() {
                 title="Choose an AI model"
                 defaultValue="Choose an AI model"
                 required
+                value={selectedModel || "Choose an AI model"}
                 className="border-gray-300 mt-2 p-2 border rounded-[0.25rem] w-full text-sm"
                 onChange={(e) => setSelectedModel(e.target.value)}
               >
@@ -138,6 +139,7 @@ export default function PromptGeneratorPage() {
               <textarea
                 id="goal"
                 name="goal"
+                value={goal}
                 placeholder="Describe what you want to achieve with this prompt"
                 required
                 className="p-2 border rounded w-full h-32"
@@ -154,6 +156,7 @@ export default function PromptGeneratorPage() {
                 type="text"
                 placeholder="Enter the main topic or subject"
                 name="topic"
+                value={topic}
                 required
                 className="p-2 border rounded w-full"
                 onChange={(e) => setTopic(e.target.value)}
@@ -204,7 +207,7 @@ export default function PromptGeneratorPage() {
             <textarea
               name="generated-prompt"
               disabled
-              className="p-2 border rounded w-full h-full resize-none"
+              className="p-2 border rounded w-full h-full min-h-64 resize-none"
               placeholder="Your generated prompt will be displayed here..."
               value={generatedPrompt}
             ></textarea>
