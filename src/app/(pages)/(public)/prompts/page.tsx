@@ -1,11 +1,12 @@
 "use client";
 import RadioSelect from "@/components/common/RadioSelect";
-import { FaWandMagicSparkles } from "react-icons/fa6";
+import { FaSpinner, FaWandMagicSparkles } from "react-icons/fa6";
 import CopyToClipboard from "@/components/common/CopyToClipboard";
 import PromptExamples from "@/components/specific/PromptExamples";
 
 import { aiModels } from "@/data/aiModels";
 import { useState } from "react";
+import HowtoUseAI from "@/components/specific/HowtoUseAI";
 
 export default function PromptGeneratorPage() {
   const [selectedModel, setSelectedModel] = useState<string>();
@@ -13,31 +14,16 @@ export default function PromptGeneratorPage() {
   const [goal, setGoal] = useState<string>();
   const [topic, setTopic] = useState<string>();
   const [generatedPrompt, setGeneratedPrompt] = useState<string>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>();
 
   const toneOptions = ["Professional", "Casual", "Formal", "Humorous"];
-
-  console.log(
-    "Model:",
-    selectedModel,
-    "Goal:",
-    goal,
-    "Topic:",
-    topic,
-    "Tone:",
-    selectedTone
-  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       if (selectedModel && selectedTone && goal && topic) {
-        console.log("Sending request with:", {
-          model: selectedModel,
-          tone: selectedTone,
-          goal,
-          topic,
-        });
-
         const cohereResponse = await fetch("/api/chat", {
           method: "POST",
           headers: {
@@ -52,18 +38,17 @@ export default function PromptGeneratorPage() {
         });
 
         if (!cohereResponse.ok) {
-          console.error(
-            "Error with the response status:",
-            cohereResponse.status
+          setError(
+            `Request failed, please contact support. ${cohereResponse.statusText}`
           );
           return;
         }
 
         const data = await cohereResponse.json();
-        console.log("API response:", data);
 
         if (data.error) {
-          console.error("API Error:", data.error);
+          setError(data.error);
+          return;
         }
 
         setSelectedModel("");
@@ -72,12 +57,15 @@ export default function PromptGeneratorPage() {
         setTopic("");
 
         setGeneratedPrompt(data.cohereResponse.text);
-        console.log("Generated prompt:", data.cohereResponse.text);
       } else {
-        console.error("Form submission failed: all fields are required.");
+        setError(
+          "Please select the model that you want to generate a prompt for."
+        );
       }
     } catch (error) {
-      console.error("Error:", error);
+      setError(error instanceof Error ? error.message : "An error occurred.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -104,6 +92,8 @@ export default function PromptGeneratorPage() {
               <select
                 title="Choose an AI model"
                 defaultValue="Choose an AI model"
+                required
+                value={selectedModel || "Choose an AI model"}
                 className="border-gray-300 mt-2 p-2 border rounded-[0.25rem] w-full text-sm"
                 onChange={(e) => setSelectedModel(e.target.value)}
               >
@@ -133,7 +123,9 @@ export default function PromptGeneratorPage() {
               <textarea
                 id="goal"
                 name="goal"
+                value={goal}
                 placeholder="Describe what you want to achieve with this prompt"
+                required
                 className="p-2 border rounded w-full h-32"
                 onChange={(e) => setGoal(e.target.value)}
               ></textarea>
@@ -148,6 +140,8 @@ export default function PromptGeneratorPage() {
                 type="text"
                 placeholder="Enter the main topic or subject"
                 name="topic"
+                value={topic}
+                required
                 className="p-2 border rounded w-full"
                 onChange={(e) => setTopic(e.target.value)}
               />
@@ -165,12 +159,22 @@ export default function PromptGeneratorPage() {
 
               <button
                 type="submit"
-                className="flex justify-center items-center bg-blue-500 mt-6 p-2 rounded-[0.26rem] w-full text-white"
+                className="flex justify-center items-center bg-blue-600 hover:bg-blue-700 mt-6 p-2 rounded-[0.26rem] w-full text-white"
               >
-                <span>Generate Prompt</span>
-                <FaWandMagicSparkles className="ml-2" />
+                {isLoading ? (
+                  <div className="flex items-center space-x-2">
+                    <span>Please Wait</span>
+                    <FaSpinner className="ml-2 animate-spin" />
+                  </div>
+                ) : (
+                  <div className="flex items-center space-x-2">
+                    <span>Generate Prompt</span>
+                    <FaWandMagicSparkles className="ml-2" />
+                  </div>
+                )}
               </button>
             </form>
+            {error && <p className="text-center text-red-500">{error}</p>}
           </div>
         </section>
 
@@ -188,7 +192,7 @@ export default function PromptGeneratorPage() {
             <textarea
               name="generated-prompt"
               disabled
-              className="p-2 border rounded w-full h-full resize-none"
+              className="p-2 border rounded w-full h-full min-h-64 resize-none"
               placeholder="Your generated prompt will be displayed here..."
               value={generatedPrompt}
             ></textarea>
@@ -198,9 +202,10 @@ export default function PromptGeneratorPage() {
         </section>
       </article>
 
-      <article className="my-16">
+      <section className="my-16 text-center">
+        <HowtoUseAI />
         <PromptExamples />
-      </article>
+      </section>
     </section>
   );
 }
