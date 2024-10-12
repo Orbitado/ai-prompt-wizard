@@ -58,7 +58,9 @@ export default function PromptGeneratorPage() {
 
         setGeneratedPrompt(data.cohereResponse.text);
       } else {
-        setError("Please fill in all required fields.");
+        setError(
+          "Please select the model that you want to generate a prompt for."
+        );
       }
     } catch (error) {
       setError(error instanceof Error ? error.message : "An error occurred.");
@@ -172,7 +174,7 @@ export default function PromptGeneratorPage() {
                 )}
               </button>
             </form>
-            {error && <p className="text-red-500">{error}</p>}
+            {error && <p className="text-center text-red-500">{error}</p>}
           </div>
         </section>
 
