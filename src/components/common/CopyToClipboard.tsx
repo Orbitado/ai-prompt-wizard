@@ -13,7 +13,7 @@ export default function CopyToClipboard(props: { text: string }) {
 
   return (
     <button
-      className="bg-blue-600 hover:bg-blue-700 px-8 py-2 rounded-full w-full font-bold text-center text-md text-white text-wrap xs:text-lg"
+      className="bg-blue-600 hover:bg-blue-700 px-8 py-2 rounded-[0.25rem] w-full font-bold text-center text-md text-white text-wrap xs:text-lg"
       onClick={handleCopy}
     >
       {`${copied ? "Copied!" : "Copy to Clipboard"}`}

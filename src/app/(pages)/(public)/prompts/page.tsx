@@ -1,6 +1,6 @@
 "use client";
 import RadioSelect from "@/components/common/RadioSelect";
-import { FaWandMagicSparkles } from "react-icons/fa6";
+import { FaSpinner, FaWandMagicSparkles } from "react-icons/fa6";
 import CopyToClipboard from "@/components/common/CopyToClipboard";
 import PromptExamples from "@/components/specific/PromptExamples";
 
@@ -13,6 +13,7 @@ export default function PromptGeneratorPage() {
   const [goal, setGoal] = useState<string>();
   const [topic, setTopic] = useState<string>();
   const [generatedPrompt, setGeneratedPrompt] = useState<string>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const toneOptions = ["Professional", "Casual", "Formal", "Humorous"];
 
@@ -30,6 +31,7 @@ export default function PromptGeneratorPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       if (selectedModel && selectedTone && goal && topic) {
         console.log("Sending request with:", {
           model: selectedModel,
@@ -78,6 +80,8 @@ export default function PromptGeneratorPage() {
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -167,8 +171,17 @@ export default function PromptGeneratorPage() {
                 type="submit"
                 className="flex justify-center items-center bg-blue-500 mt-6 p-2 rounded-[0.26rem] w-full text-white"
               >
-                <span>Generate Prompt</span>
-                <FaWandMagicSparkles className="ml-2" />
+                {isLoading ? (
+                  <div className="flex items-center space-x-2">
+                    <span>Please Wait</span>
+                    <FaSpinner className="ml-2 animate-spin" />
+                  </div>
+                ) : (
+                  <div className="flex items-center space-x-2">
+                    <span>Generate Prompt</span>
+                    <FaWandMagicSparkles className="ml-2" />
+                  </div>
+                )}
               </button>
             </form>
           </div>
