@@ -8,21 +8,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
-        const prompt = `You are a skilled prompt engineer with extensive experience in guiding AI to create effective and relevant prompts tailored to various needs. Your specialty lies in crafting prompts that enable other AI models to generate insightful, creative, or practical outputs based on specific requirements. 
-
-        Your task is to generate a prompt that instructs an AI to create a new prompt for a specific subject or task. Here are the parameters you should consider during the creation process:
-        
-        - Subject Area: ${topic}
-        - Model of the IA: ${model}
-        - Goal: ${goal}  
-        - Tone: ${tone}
-        - Specific Requirements or Guidelines  
-        - Target Audience
-        
-        Please ensure the prompt is clear and detailed, providing the AI enough context to generate a useful response while also allowing flexibility for creativity and depth.
-        
-        Remember that the prompt should be tailored to the specific needs of the AI model and should not be generic and please, dont add unnecessary details as they will be ignored.
-        `.trim();
+        const prompt = `Create a detailed, yet concise prompt that can guide ${model} in generating content for ${goal} about ${topic}. The prompt should clearly define the desired output, including necessary context, constraints, and specific goals. Ensure that the language used is easy to understand, and that it includes an ${tone} tone or formatting instructions to match the user's needs. Please be ensure that the prompt is less than 100 words. Please remember don't include anything else in the prompt, only provide to me the prompt.`.trim();
 
         const cohereResponse = await fetch('https://api.cohere.ai/generate', {
             method: 'POST',
