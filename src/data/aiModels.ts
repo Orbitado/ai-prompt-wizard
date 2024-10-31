@@ -20,4 +20,11 @@ export const aiModels = [
       description: "Detailed prompt for creating a unique image",
       content: `"A steampunk-inspired flying machine with brass gears, leather wings, and a glass cockpit, soaring through a cloudy sky at golden hour, hyper-realistic style, 8k resolution"`,
     },
+    {
+      name: "V0.dev",
+      value: "v0.dev",
+      title: "V0.dev Prompt Example",
+      description: "Prompt for create a user interface",
+      content: `"Generate an example of a VM deployment on V0.dev of Vercel, detailing the steps and configurations. Highlight the key features, such as improved scaling, faster boot times, and better isolation. Compare these features to the previous version of Vercel, focusing on improvements in resource management and deployment speed. Conclude with a summary of the main benefits of using V0.dev over the older version."`,
+    },
   ];

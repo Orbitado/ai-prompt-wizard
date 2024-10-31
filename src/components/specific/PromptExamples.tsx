@@ -17,12 +17,12 @@ export default function PromptExamples() {
         Prompt Examples
       </h3>
       <Tabs defaultValue="chatgpt" className="w-full max-w-7xl">
-        <TabsList className="grid grid-cols-3 mb-4 w-full">
+        <TabsList className="flex mb-4 w-full overflow-x-auto overflow-y-hidden">
           {aiModels.map((model) => (
             <TabsTrigger
               key={model.name}
               value={model.value}
-              className="bg-white shadow-md font-bold"
+              className="bg-white shadow-md px-6 py-2 w-full font-bold whitespace-nowrap"
             >
               {model.name}
             </TabsTrigger>
